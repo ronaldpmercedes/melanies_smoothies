@@ -41,4 +41,10 @@ if ingredients_list:
 #new section to display
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response.json())
+#st.text(fruityvice_response.json())
+#added just to test
+try:
+    data = fruityvice_response.json()
+    st.text(data)
+except ValueError as e:
+    st.text(f"Error decoding JSON: {e}")
