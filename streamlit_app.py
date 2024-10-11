@@ -38,14 +38,12 @@ if ingredients_list:
     
         st.success('Your Smoothie is ordered!', icon="✅")
 
-#new section to display
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-#st.text(fruityvice_response.json())
-#added just to test
-        #try:
-        #    data = fruityvice_response.json()
-        #    st.text(data)
-        #except ValueError as e:
-        #    st.text(f"Error decoding JSON: {e}")
-fv_df = st.dataframe(data=fruityvice_response.json(), usecontainer_width=true)
+fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
+
+if ingrediants_list:
+        ingrediant_string = ''
+        for fruit_chosen in ingredient_list:
+            fruityvice_response =  requests.get("https://fruityvice.com/api/fruit/watermelon")
+            fv_df = st.dataframe(data=fruityvice_response.json(), use_container_width=True)
